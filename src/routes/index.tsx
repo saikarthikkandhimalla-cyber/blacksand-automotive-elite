@@ -19,8 +19,6 @@ const WHATSAPP = "https://wa.me/254700000000";
 const PHONE = "tel:+254700000000";
 const MAPS = "https://maps.google.com/?q=DDC+Milimani+Nairobi";
 
-/* ---------- Reusable building blocks ---------- */
-
 function SectionTitle({ kicker, title, subtitle, center = true }: { kicker: string; title: string; subtitle?: string; center?: boolean }) {
   return (
     <div className={`max-w-3xl ${center ? "mx-auto text-center" : ""} mb-14`}>
@@ -28,9 +26,7 @@ function SectionTitle({ kicker, title, subtitle, center = true }: { kicker: stri
         <span className="h-px w-8 bg-primary" />
         {kicker}
       </div>
-      <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05]">
-        {title}
-      </h2>
+      <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05]">{title}</h2>
       {subtitle && <p className="mt-5 text-base sm:text-lg text-muted-foreground">{subtitle}</p>}
     </div>
   );
@@ -57,8 +53,6 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
   return <span ref={ref}>{val.toLocaleString()}{suffix}</span>;
 }
 
-/* ---------- Nav ---------- */
-
 const NAV = [
   { id: "services", label: "Services" },
   { id: "process", label: "Process" },
@@ -77,7 +71,7 @@ function Nav() {
   }, []);
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "py-2" : "py-4"}`}>
-      <div className={`mx-auto max-w-7xl px-4 sm:px-6`}>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className={`flex items-center justify-between rounded-2xl px-4 sm:px-6 py-3 transition-all duration-500 ${scrolled ? "glass-strong" : ""}`}>
           <a href="#top" className="flex items-center gap-3 min-w-0">
             <div className="h-10 w-10 rounded-lg bg-white p-1 shrink-0 grid place-items-center">
@@ -85,7 +79,7 @@ function Nav() {
             </div>
             <div className="leading-tight min-w-0">
               <div className="font-display font-bold tracking-wide text-sm sm:text-base truncate">BLACKSAND</div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-[var(--silver)]">Auto &amp; Car Spa</div>
+              <div className="text-[10px] uppercase tracking-[0.25em] text-[var(--silver)]">Auto & Car Spa</div>
             </div>
           </a>
           <nav className="hidden lg:flex items-center gap-8">
@@ -107,18 +101,11 @@ function Nav() {
         </div>
         <AnimatePresence>
           {open && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
-              className="lg:hidden mt-2 glass-strong rounded-2xl p-4 flex flex-col gap-1"
-            >
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="lg:hidden mt-2 glass-strong rounded-2xl p-4 flex flex-col gap-1">
               {NAV.map(n => (
-                <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)} className="px-3 py-3 rounded-lg hover:bg-white/5 text-sm">
-                  {n.label}
-                </a>
+                <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)} className="px-3 py-3 rounded-lg hover:bg-white/5 text-sm">{n.label}</a>
               ))}
-              <a href="#book" onClick={() => setOpen(false)} className="mt-2 text-center rounded-full bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold">
-                Book Appointment
-              </a>
+              <a href="#book" onClick={() => setOpen(false)} className="mt-2 text-center rounded-full bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold">Book Appointment</a>
             </motion.div>
           )}
         </AnimatePresence>
@@ -126,8 +113,6 @@ function Nav() {
     </header>
   );
 }
-
-/* ---------- Hero ---------- */
 
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -144,11 +129,11 @@ function Hero() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-12 sm:pt-24 pb-32">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs uppercase tracking-[0.3em] text-[var(--silver)]">
           <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-          Nairobi &bull; Premium Auto Detailing
+          Nairobi • Premium Auto Detailing
         </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.1 }} className="mt-6 text-5xl sm:text-7xl md:text-8xl font-bold leading-[0.95] max-w-5xl">
           Premium Car <br className="hidden sm:block" />
-          Detailing &amp; <span className="text-gradient-blue">Protection</span> Services
+          Detailing & <span className="text-gradient-blue">Protection</span> Services
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.25 }} className="mt-8 max-w-2xl text-lg sm:text-xl text-muted-foreground">
           Restore. Protect. Elevate your vehicle with professional detailing crafted for those who refuse the ordinary.
@@ -165,12 +150,12 @@ function Hero() {
           <div className="flex gap-12 animate-[shimmer_30s_linear_infinite] whitespace-nowrap text-xs uppercase tracking-[0.3em] text-[var(--silver)]">
             {Array.from({ length: 2 }).map((_, i) => (
               <div key={i} className="flex gap-12 shrink-0">
-                <span>Ceramic Coating</span><span>&bull;</span>
-                <span>Paint Protection Film</span><span>&bull;</span>
-                <span>Graphene Coating</span><span>&bull;</span>
-                <span>Paint Correction</span><span>&bull;</span>
-                <span>Interior Detailing</span><span>&bull;</span>
-                <span>Engine Bay</span><span>&bull;</span>
+                <span>Ceramic Coating</span><span>•</span>
+                <span>Paint Protection Film</span><span>•</span>
+                <span>Graphene Coating</span><span>•</span>
+                <span>Paint Correction</span><span>•</span>
+                <span>Interior Detailing</span><span>•</span>
+                <span>Engine Bay</span><span>•</span>
               </div>
             ))}
           </div>
@@ -498,7 +483,7 @@ function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between gap-4 text-xs text-muted-foreground">
-          <div>&copy; {new Date().getFullYear()} Blacksand Auto & Car Spa. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} Blacksand Auto & Car Spa. All rights reserved.</div>
           <div className="flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Crafted in Nairobi</div>
         </div>
       </div>
