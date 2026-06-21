@@ -12,4 +12,8 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Enable nitro outside the Lovable sandbox so external CI (Vercel, Netlify,
+  // etc.) builds an SSR server. Nitro auto-detects the deploy target from the
+  // CI env (e.g. `VERCEL=1` → vercel preset, output in `.vercel/output`).
+  nitro: true,
 });
