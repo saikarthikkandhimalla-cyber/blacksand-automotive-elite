@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 
 import heroCar from "@/assets/hero-car.jpg";
-import blacksandLogo from "@/assets/blacksand-logo.png";
+import blacksandLogo from "@/assets/blacksand-logo.svg";
 import galCeramic from "@/assets/gallery-ceramic.jpg";
 import galInterior from "@/assets/gallery-interior.jpg";
 import galWash from "@/assets/gallery-wash.jpg";
